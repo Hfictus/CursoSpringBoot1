@@ -28,7 +28,6 @@ public class Program {
 		Map<Long, Order> map = new HashMap<>();
 		Map<Long, Product> prods = new HashMap<>();
 		while (rs.next()) {
-			
 			Long orderId = rs.getLong("order_id");
 			if(map.get(orderId) == null) {
 				Order order = instantiateOrder(rs);
