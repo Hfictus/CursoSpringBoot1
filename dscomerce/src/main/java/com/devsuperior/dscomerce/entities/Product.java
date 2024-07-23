@@ -1,19 +1,22 @@
 package com.devsuperior.dscomerce.entities;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
+/*
+	import jakarta.persistence.Column;
+	import jakarta.persistence.Entity;
+	import jakarta.persistence.GeneratedValue;
+	import jakarta.persistence.GenerationType;
+	import jakarta.persistence.Id;
+	import jakarta.persistence.JoinColumn;
+	import jakarta.persistence.JoinTable;
+	import jakarta.persistence.ManyToMany;
+	import jakarta.persistence.OneToMany;
+	import jakarta.persistence.Table;
+ */
 
 @Entity
 @Table(name = "tb_product")
@@ -93,5 +96,15 @@ public class Product {
 	public Set<Category> getCategories() {
 		return categories;
 	}
+
+	public Set<OrderItem> getItens() {
+		return itens;
+	}
+	
+	
+	public List<Order> getOrders() {
+		return itens.stream().map(x -> x.getOrder()).toList();
+	}
+	
 	
 }
