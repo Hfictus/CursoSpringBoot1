@@ -1,6 +1,7 @@
 package com.devsuperior.dsb2.entities;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 //import jakarta.persistence.*;
@@ -62,7 +63,22 @@ public class Participante {
 	public Set<Atividade> getAtividades() {
 		return atividades;
 	}
-	
-	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, id, nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Participante other = (Participante) obj;
+		return Objects.equals(email, other.email) && Objects.equals(id, other.id) && Objects.equals(nome, other.nome);
+	}
 	
 }
