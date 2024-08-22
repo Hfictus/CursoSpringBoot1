@@ -101,7 +101,7 @@ public class Atividade {
 	public Set<Participante> getParticipantes() {
 		return participantes;
 	}
-
+		
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

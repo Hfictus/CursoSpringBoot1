@@ -124,6 +124,4 @@ public class Product {
 		return Objects.equals(id, other.id);
 	}
 	
-	
-	
 }
