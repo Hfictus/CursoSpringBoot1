@@ -3,14 +3,17 @@ package com.devsuperior.dsb2.entities;
 import java.time.Instant;
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+/*jakarta.persistence:
+	import jakarta.persistence.Column;
+	import jakarta.persistence.Entity;
+	import jakarta.persistence.GeneratedValue;
+	import jakarta.persistence.GenerationType;
+	import jakarta.persistence.Id;
+	import jakarta.persistence.JoinColumn;
+	import jakarta.persistence.ManyToOne;
+	import jakarta.persistence.Table;
+ */
 
 @Entity
 @Table(name = "tb_bloco")
@@ -87,7 +90,4 @@ public class Bloco {
 		Bloco other = (Bloco) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
 }
