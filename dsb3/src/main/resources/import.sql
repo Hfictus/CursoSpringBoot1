@@ -1,0 +1,10 @@
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('Alan Turing', '123.456.789-01', 100000.0, '1912-06-23', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('John von Neumann', '234.567.890-12', 120000.0, '1903-12-28', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('Grace Hopper', '345.678.901-23', 95000.0, '1906-12-09', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('Donald Knuth', '456.789.012-34', 130000.0, '1938-01-10', 3);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('Claude Shannon', '567.890.123-45', 110000.0, '1916-04-30', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('Tim Berners-Lee', '678.901.234-56', 140000.0, '1955-06-08', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('Linus Torvalds', '789.012.345-67', 150000.0, '1969-12-28', 3);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('Vint Cerf', '890.123.456-78', 125000.0, '1943-06-23', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('Ada Lovelace', '901.234.567-89', 90000.0, '1815-12-10', 3);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES('Margaret Hamilton', '012.345.678-90', 135000.0, '1936-08-17', 1);
