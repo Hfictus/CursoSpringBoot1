@@ -2,6 +2,8 @@ package com.devsuperior.dsb3.dto;
 
 import java.time.LocalDate;
 
+import com.devsuperior.dsb3.entities.Client;
+
 public class ClientDTO {
 	
 	private Long id;
@@ -19,7 +21,16 @@ public class ClientDTO {
 		this.birthDate = birthDate;
 		this.children = children;
 	}
-
+	
+	public ClientDTO(Client entity) {
+		id = entity.getId();
+		name = entity.getName();
+		cpf = entity.getCpf();
+		income = entity.getIncome();
+		birthDate = entity.getBirthDate();
+		children = entity.getChildren();
+	}
+	
 	public Long getId() {
 		return id;
 	}
