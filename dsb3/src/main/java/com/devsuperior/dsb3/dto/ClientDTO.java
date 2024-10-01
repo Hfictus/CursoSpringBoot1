@@ -34,11 +34,10 @@ public class ClientDTO {
 		children = entity.getChildren();
 	}
 	
-	/*
 	public Long getId() {
 		return id;
 	}
-	*/
+	
 	public String getName() {
 		return name;
 	}
