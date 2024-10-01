@@ -1,6 +1,5 @@
 package com.devsuperior.dsb3.services;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,18 +36,17 @@ public class ClientService {
 	}
 
 	@Transactional
-	public ClientDTO insert(Client dto) {
+	public ClientDTO insert(ClientDTO dto) {
 		Client entity = new Client();
 		
 		entity.setName(dto.getName());
 		entity.setCpf(dto.getCpf());
 		entity.setIncome(dto.getIncome());
-		entity.setBirthDate(dto.getbirthDate());
+		entity.setBirthDate(dto.getBirthDate());
 		entity.setChildren(dto.getChildren());
 		
 		entity = repository.save(entity);
-		
-		
+				
 		return new ClientDTO(entity);
 	}
 	
