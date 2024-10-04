@@ -5,13 +5,19 @@ import java.time.LocalDate;
 import com.devsuperior.dsb3.entities.Client;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+
 public class ClientDTO {
 	
 	private Long id;
+	
+	@NotBlank(message = "Nome vazio é inválido")
 	private String name;
 	private String cpf;
 	private Double income;
 	
+	@PastOrPresent(message = "Data futura é inválida")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birthDate;
 	private Integer children;
