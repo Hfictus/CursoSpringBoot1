@@ -7,17 +7,21 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Pattern;
 
 public class ClientDTO {
 	
 	private Long id;
 	
-	@NotBlank(message = "Nome vazio é inválido")
+	@NotBlank(message = "Campo requerido")
 	private String name;
+	
+	@NotBlank(message = "Campo requerido")
+	@Pattern(regexp = "\\{11}", message = "Sequência de 11 dígitos requerida")
 	private String cpf;
 	private Double income;
 	
-	@PastOrPresent(message = "Data futura é inválida")
+	@PastOrPresent(message = "Requer data passada")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birthDate;
 	private Integer children;
