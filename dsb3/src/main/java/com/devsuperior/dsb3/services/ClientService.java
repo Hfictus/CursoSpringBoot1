@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dsb3.dto.ClientDTO;
 import com.devsuperior.dsb3.entities.Client;
 import com.devsuperior.dsb3.repositories.ClientRepository;
+import com.devsuperior.dsb3.services.exceptions.ResourceAlreadyExistsException;
 import com.devsuperior.dsb3.services.exceptions.ResourceNotFoundException;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -34,9 +35,9 @@ public class ClientService {
 
 	@Transactional
 	public ClientDTO insert(ClientDTO dto) {
-		/*if() {
-			
-		}*/
+		if(repository.existsByCpf(dto.getCpf())) {
+			throw new ResourceAlreadyExistsException("CPF já cadastrado");
+		}
 		Client entity = new Client();
 		copyDtoToEntity(dto, entity);
 		entity = repository.save(entity);

@@ -8,9 +8,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "tb_client")
+@Table(name = "tb_client", uniqueConstraints = {@UniqueConstraint(columnNames = "cpf")})
 public class Client {
 	
 	

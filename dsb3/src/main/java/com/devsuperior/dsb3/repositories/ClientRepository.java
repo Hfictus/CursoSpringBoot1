@@ -6,6 +6,6 @@ import com.devsuperior.dsb3.entities.Client;
 
 public interface ClientRepository extends JpaRepository<Client, Long>{
 	
-	
+	boolean existsByCpf(String cpf);
 	
 }

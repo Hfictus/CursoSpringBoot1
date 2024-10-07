@@ -17,7 +17,7 @@ public class ClientDTO {
 	private String name;
 	
 	@NotBlank(message = "Campo requerido")
-	@Pattern(regexp = "\\{11}", message = "Sequência de 11 dígitos requerida")
+	@Pattern(regexp = "\\d{11}", message = "Requer sequência de 11 dígitos contínuos")
 	private String cpf;
 	private Double income;
 	
