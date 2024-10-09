@@ -38,7 +38,7 @@ public class ControllerExceptionHandler {
 	
 	@ExceptionHandler(ResourceAlreadyExistsException.class)
 	public ResponseEntity<CustomError>  resourceAlreadyExists(ResourceAlreadyExistsException e, HttpServletRequest request) {
-		HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
+		HttpStatus status = HttpStatus.CONFLICT;
 		ValidationError err = new ValidationError(Instant.now(), status.value(), "Dados inválidos", request.getRequestURI());
 		err.addError("cpf", e.getMessage());
 		return ResponseEntity.status(status).body(err);
