@@ -8,29 +8,27 @@ import jakarta.validation.constraints.Size;
 
 public class ProductDTO {
 	private Long id;
-	
+
 	@Size(min = 3, max = 80, message = "O comprimento do nome deve ter de 3 a 80 caracteres")
 	@NotBlank(message = "Campo requerido")
 	private String name;
-	
+
 	@Size(min = 10, message = "Número mínimo de caracteres exigidos para a descrição: 10")
 	@NotBlank(message = "Campo requerido")
 	private String description;
-		
+
 	@Positive(message = "O valor do preço deve ser positivo")
 	private Double price;
 	private String imgUrl;
-		
-	/**
-	 *public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
-	 *	 this.id = id;
-	 *	 this.name = name;
-	 *	 this.description = description;
-	 *	 this.price = price;
-	 *	 this.imgUrl = imgUrl;
-	 *}
-	 *
-	 */	
+
+	public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.imgUrl = imgUrl;
+	}
+
 	public ProductDTO(Product entity) {
 		id = entity.getId();
 		name = entity.getName();
@@ -38,7 +36,7 @@ public class ProductDTO {
 		price = entity.getPrice();
 		imgUrl = entity.getImgUrl();
 	}
-	
+
 	public Long getId() {
 		return id;
 	}

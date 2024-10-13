@@ -2,6 +2,7 @@ package com.devsuperior.dsb3.controllers.handlers;
 
 import java.time.Instant;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.devsuperior.dsb3.dto.CustomError;
 import com.devsuperior.dsb3.dto.ValidationError;
+import com.devsuperior.dsb3.services.exceptions.DatabaseException;
 import com.devsuperior.dsb3.services.exceptions.ResourceNotFoundException;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +28,7 @@ public class ControllerExceptionHandler {
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<CustomError> methodArgumentNotValid(MethodArgumentNotValidException e, HttpServletRequest request) {
+	public ResponseEntity<CustomError> methodArgumentNotValidation(MethodArgumentNotValidException e, HttpServletRequest request) {
 		HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
 		ValidationError err = new ValidationError(Instant.now(), status.value(), "Dados inválidos", request.getRequestURI());
 		for(FieldError f: e.getBindingResult().getFieldErrors()) {
@@ -34,5 +36,14 @@ public class ControllerExceptionHandler {
 		}
 		return ResponseEntity.status(status).body(err);
 	}
-		
+	
+	@ExceptionHandler(DatabaseException.class)
+	public ResponseEntity<CustomError>  databaseException(DatabaseException e, HttpServletRequest request) {
+		HttpStatus status = HttpStatus.CONFLICT;
+		ValidationError err = new ValidationError(Instant.now(), status.value(), "Dados inválidos", request.getRequestURI());
+		err.addError("cpf", e.getMessage());
+		return ResponseEntity.status(status).body(err);
+	}
+	
+	
 }

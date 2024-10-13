@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Pattern;
 
 public class ClientDTO {
 	
@@ -14,6 +15,9 @@ public class ClientDTO {
 	
 	@NotBlank(message = "Campo requerido")
 	private String name;
+	
+	@NotBlank(message = "Campo requerido")
+	@Pattern(regexp = "\\d{11}", message = "Requer sequência de 11 dígitos contínuos")
 	private String cpf;
 	private Double income;
 	

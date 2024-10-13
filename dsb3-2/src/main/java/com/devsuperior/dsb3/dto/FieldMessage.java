@@ -17,4 +17,7 @@ public class FieldMessage {
 	public String getMessage() {
 		return message;
 	}
+	
+	
+	
 }

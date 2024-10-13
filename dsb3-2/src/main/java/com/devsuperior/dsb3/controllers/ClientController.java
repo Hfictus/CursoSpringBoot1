@@ -33,13 +33,13 @@ public class ClientController {
 		ClientDTO dto = service.findById(id);
 		return ResponseEntity.ok(dto);
 	}
-		
+	
 	@GetMapping
 	public ResponseEntity<Page<ClientDTO>> findAll(Pageable pageable) {
 		Page<ClientDTO> dto = service.findAll(pageable);
 		return ResponseEntity.ok(dto);
 	}
-			
+		
 	@PostMapping
 	public ResponseEntity<ClientDTO> insert(@Valid @RequestBody ClientDTO dto) {
 		dto = service.insert(dto);

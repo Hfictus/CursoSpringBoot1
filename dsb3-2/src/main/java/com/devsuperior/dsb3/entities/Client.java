@@ -2,14 +2,16 @@ package com.devsuperior.dsb3.entities;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "tb_client")
+@Table(name = "tb_client", uniqueConstraints = {@UniqueConstraint(columnNames = "cpf")})
 public class Client {
 	
 	
@@ -17,6 +19,8 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	@Column(nullable = false, unique = true)
 	private String cpf;
 	private Double income;
 	private LocalDate birthDate;
@@ -81,4 +85,6 @@ public class Client {
 	public void setChildren(Integer children) {
 		this.children = children;
 	}
+	
+	
 }
