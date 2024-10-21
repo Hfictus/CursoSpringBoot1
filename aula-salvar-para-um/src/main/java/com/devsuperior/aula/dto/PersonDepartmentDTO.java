@@ -18,10 +18,10 @@ public class PersonDepartmentDTO {
 	}
 
 	public PersonDepartmentDTO(Person entity) {
-		this.id = entity.id;
-		this.name = entity.name;
-		this.salary = entity.salary;
-		this.department = entity.department;
+		id = entity.getId();
+		name = entity.getName();
+		salary = entity.getSalary();
+		department = new DepartmentDTO(entity.getDepartment());
 	}
 	
 	
