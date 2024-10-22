@@ -21,9 +21,7 @@ public class PersonController {
 	
 	@Autowired
 	private PersonService service;
-	
-	
-	
+		
 	//@PostMapping
 	public ResponseEntity<PersonDepartmentDTO> insert(@RequestBody PersonDepartmentDTO dto) {
 		dto = service.insert(dto);
