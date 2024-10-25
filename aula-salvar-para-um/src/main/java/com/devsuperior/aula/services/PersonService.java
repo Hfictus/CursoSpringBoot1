@@ -15,6 +15,13 @@ public class PersonService {
 	@Autowired
 	private PersonRepository repository;
 	
+	/*
+	 * @Autowired
+	 * private DepartmentRepository departmentRepository;
+	 * para busca de dados de Department no DB com JPA
+	 * para instanciar entidade ou objeto gerenciado pela JPA
+	 * a JPA busca dados no DB se preciso 
+	 */
 	
 	public PersonDepartmentDTO insert(PersonDepartmentDTO dto) {
 		
@@ -40,6 +47,7 @@ public class PersonService {
 		
 		//Department dept = departmentRepository.getReferenceById(dto.getDepartmentId());
 		
+		//objeto ou entidade transiente (dept): apenas salva id da entidade Department no DB
 		Department dept = new Department();
 		dept.setId(dto.getDepartmentId());
 		
