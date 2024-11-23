@@ -15,16 +15,20 @@ import com.example.demo.repositories.ProductRepository;
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
+	
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
+	
 	@Autowired
 	private ProductRepository productRepository;
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
@@ -58,4 +62,5 @@ public class DemoApplication implements CommandLineRunner {
 		
 		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
 	}
+	
 }
