@@ -24,7 +24,6 @@ public class Uri2990Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
 		List<EmpregadoDeptProjection> list = repository.search1();
 		List<EmpregadoDeptDTO> result1 = list.stream().map(x -> new EmpregadoDeptDTO(x)).collect(Collectors.toList());
 		
@@ -34,12 +33,21 @@ public class Uri2990Application implements CommandLineRunner {
 		}
 		System.out.println("\n\n");
 		
-		System.out.println("\n***CONSULTA JPQL:");
 		List<EmpregadoDeptDTO> result2 = repository.search2();
+		System.out.println("\n***CONSULTA JPQL:");
 		for(EmpregadoDeptDTO obj : result2) {
 			System.out.println(obj);
 		}
 		System.out.println("\n\n");
 		
+		//list = repository.search3();
+		List<EmpregadoDeptDTO> result3 = repository.search3()
+				.stream().map(x -> new EmpregadoDeptDTO(x)).collect(Collectors.toList());
+		
+		System.out.println("\n***RESULTADO SQL RAIZ LEFT JOIN:");
+		for(EmpregadoDeptDTO obj : result3) {
+			System.out.println(obj);
+		}
+		System.out.println();
 	}
 }
