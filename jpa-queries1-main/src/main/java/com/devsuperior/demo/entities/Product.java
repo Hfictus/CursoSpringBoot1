@@ -1,7 +1,6 @@
-package com.example.demo.entities;
+package com.devsuperior.demo.entities;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 import jakarta.persistence.Entity;
@@ -21,6 +20,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	private Double price;
 	
 	@ManyToMany
 	@JoinTable(name = "tb_product_category",
@@ -28,49 +28,31 @@ public class Product {
 		inverseJoinColumns = @JoinColumn(name = "category_id"))	
 	private Set<Category> categories = new HashSet<>();
 	
-	public Product() {
-	}
-	
-	public Product(Long id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-	
 	public Long getId() {
 		return id;
 	}
-
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Double getPrice() {
+		return price;
+	}
+	
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 	public Set<Category> getCategories() {
 		return categories;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Product other = (Product) obj;
-		return Objects.equals(id, other.id);
-	}
-		
 }
