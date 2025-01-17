@@ -13,7 +13,7 @@ import com.example.demo.dto.ProductDTO;
 import com.example.demo.service.ProductService;
 
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping(v	alue = "/products")
 public class ProductResource {
 
 	@Autowired
