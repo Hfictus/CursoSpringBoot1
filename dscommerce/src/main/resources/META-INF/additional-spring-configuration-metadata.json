@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "security.client-id",
+      "type": "java.lang.String",
+      "description": "The client ID used for OAuth2 authentication. This ID is provided by the authorization server and uniquely identifies the client application."
+    },
+    {
+      "name": "security.client-secret",
+      "type": "java.lang.String",
+      "description": "The client secret used for OAuth2 authentication. This secret is provided by the authorization server and is used to authenticate the client application during the token request process."
+    },
+    {
+      "name": "security.jwt.duration",
+      "type": "java.lang.String",
+      "description": "The duration (in seconds) for which the JWT (JSON Web Token) remains valid. This value determines the expiration time of the token after it is issued."
+    },
+    {
+      "name": "cors.origins",
+      "type": "java.lang.String",
+      "description": "A comma-separated list of allowed origins for Cross-Origin Resource Sharing (CORS). These origins are permitted to access the resources of this application."
+    }
+]}
